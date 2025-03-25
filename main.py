@@ -59,3 +59,10 @@ async def contact(request: Request):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+# Para compatibilidad con Vercel
+def create_app():
+    return app
+
+# Punto de entrada para Vercel
+app_vercel = create_app()
