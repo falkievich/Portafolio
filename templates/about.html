@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Sobre Mí{% endblock %}
+
+{% block content %}
+<section class="about">
+    <h1 class="text-3xl font-bold text-center mb-8">Sobre Mí</h1>
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
+        <div class="about-text flex-1">
+            <p class="text-lg text-gray-700 leading-relaxed">
+                Soy un desarrollador web apasionado por crear soluciones tecnológicas innovadoras. 
+                Me especializo en desarrollo backend con Python y tengo experiencia en diversas 
+                tecnologías web modernas.
+            </p>
+        </div>
+        
+        <div class="skills flex-1 w-full">
+            <h2 class="text-2xl font-semibold mb-4">Habilidades</h2>
+            <ul class="grid grid-cols-2 gap-4">
+                {% for skill in skills %}
+                <li class="bg-white shadow rounded p-3 text-center hover:bg-gray-100 transition">
+                    {{ skill }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

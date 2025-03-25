@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Portfolio{% endblock %}</title>
+    <!-- Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuración personalizada de Tailwind si es necesario
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#00b0ff',
+                        'secondary': '#0091ea'
+                    }
+                }
+            }
+        }
+    </script>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-gray-800 text-white">
+        <nav class="container mx-auto flex justify-center py-4">
+            <ul class="flex space-x-6">
+                <li><a href="/" class="hover:text-primary transition duration-300">Inicio</a></li>
+                <li><a href="/projects" class="hover:text-primary transition duration-300">Proyectos</a></li>
+                <li><a href="/about" class="hover:text-primary transition duration-300">Sobre Mí</a></li>
+                <li><a href="/contact" class="hover:text-primary transition duration-300">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>&copy; 2024 Tu Nombre. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

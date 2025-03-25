@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+<section class="contact max-w-md mx-auto">
+    <h1 class="text-3xl font-bold text-center mb-8">Contáctame</h1>
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                Nombre
+            </label>
+            <input 
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary" 
+                id="name" 
+                type="text" 
+                placeholder="Tu nombre" 
+                required
+            >
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                Correo Electrónico
+            </label>
+            <input 
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary" 
+                id="email" 
+                type="email" 
+                placeholder="Tu correo" 
+                required
+            >
+        </div>
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+                Mensaje
+            </label>
+            <textarea 
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary h-32" 
+                id="message" 
+                placeholder="Tu mensaje" 
+                required
+            ></textarea>
+        </div>
+        <div class="flex items-center justify-center">
+            <button 
+                class="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300" 
+                type="submit"
+            >
+                Enviar Mensaje
+            </button>
+        </div>
+    </form>
+</section>
+{% endblock %}
