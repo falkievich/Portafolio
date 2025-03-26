@@ -3,27 +3,94 @@
 {% block title %}Sobre Mí{% endblock %}
 
 {% block content %}
-<section class="about">
-    <h1 class="text-3xl font-bold text-center mb-8">Sobre Mí</h1>
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
-        <div class="about-text flex-1">
-            <p class="text-lg text-gray-700 leading-relaxed">
-                Soy un desarrollador web apasionado por crear soluciones tecnológicas innovadoras. 
-                Me especializo en desarrollo backend con Python y tengo experiencia en diversas 
-                tecnologías web modernas.
-            </p>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<section class="about py-12">
+    <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-12 animate-fade-in">Sobre Mí</h1>
+    
+    <div class="max-w-5xl mx-auto px-6">
+        <!-- Primera Columna: Foto de Perfíl y Sobre Mí -->
+        <div class="grid md:grid-cols-[auto_1fr] gap-8 items-center mb-12">
+            <!-- Foto de Perfíl -->
+            <div class="flex justify-center md:justify-start">
+                <img 
+                    src="static/images/Foto_Thiago_Perfil.jpg" 
+                    alt="Foto de {{ name }}" 
+                    class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-lg"
+                >
+            </div>
+            
+            <!-- Sobre Mí - Texto -->
+            <div class="about-text animate-slide-in-left">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Soy un desarrollador web con una fuerte pasión por el backend, especializado en Python y en la gestión de bases de datos relacionales. Me enfoco en diseñar soluciones tecnológicas eficientes, escalables y bien estructuradas, asegurando un alto rendimiento y seguridad en cada implementación. Además, tengo experiencia en gestión de proyectos, habiendo trabajado como Project Manager en diversos desarrollos, donde he coordinado equipos, recopilado requisitos y optimizado procesos para garantizar el éxito de cada solución. Soy Analista en Sistemas y actualmente curso el quinto año de la carrera de Ingeniería en Sistemas, lo que me permite complementar mi experiencia práctica con una sólida formación académica en el diseño, desarrollo e implementación de software.
+                </p>
+                <a href="https://www.canva.com/design/DAF9oU8Qq6w/7GZT07yQ41OPDe58pZOiEQ/edit?utm_content=DAF9oU8Qq6w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" 
+                   target="_blank" 
+                   class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition transform hover:scale-105">
+                    Ver mi CV
+                </a>
+            </div>
         </div>
-        
-        <div class="skills flex-1 w-full">
-            <h2 class="text-2xl font-semibold mb-4">Habilidades</h2>
-            <ul class="grid grid-cols-2 gap-4">
-                {% for skill in skills %}
-                <li class="bg-white shadow rounded p-3 text-center hover:bg-gray-100 transition">
-                    {{ skill }}
+
+        <!-- Segunda Columna: Habilidades -->
+        <div class="skills animate-slide-in-right">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-8 text-center">Habilidades</h2>
+            <ul class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                {% set skills = [
+                    ('Python', 'icons/python_icon.svg'),
+                    ('FastAPI', 'icons/fastapi_icon.svg'),
+                    ('Jinja2', 'icons/jinja_icon.svg'),
+                    ('Pydantic', 'icons/pydantic_icon.svg'),
+                    ('Numpy', 'icons/numpy_icon.svg'),
+                    ('SQL Alchemy', 'icons/sql_alchemy_icon.svg'),
+                    ('MySQL', 'icons/mysql_icon.svg'),
+                    ('MongoDB', 'icons/mongodb_icon.svg'),
+                    ('MicroSoft Access', 'icons/microsoft_access_icon.svg'),
+                    ('Docker', 'icons/docker_icon.svg'),
+                    ('Tailwind CSS', 'icons/tailwind_css_icon.svg'),
+                    ('GitHub', 'icons/github_icon.svg'),
+                    ('Vercel', 'icons/vercel_icon.svg'),
+                    ('Trello', 'icons/trello_icon.svg'),
+                    ('Project Manager', 'icons/project_manager_icon.svg'),
+                ] %}
+                {% for skill, icon_path in skills %}
+                <li class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center text-gray-800 font-medium hover:bg-gray-100 transition transform hover:scale-105">
+                    <img 
+                        src="{{ url_for('public', path=icon_path) }}" 
+                        alt="{{ skill }} icon" 
+                        class="w-8 h-8 mb-2 object-contain"
+                    >
+                    <span class="text-sm text-center">{{ skill }}</span>
                 </li>
                 {% endfor %}
             </ul>
         </div>
     </div>
 </section>
+
+<script>
+    lucide.createIcons(); // Cargar iconos
+</script>
+
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes slideInLeft {
+        from { transform: translateX(-50px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideInRight {
+        from { transform: translateX(50px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    
+    .animate-fade-in { animation: fadeIn 1s ease-out; }
+    .animate-slide-in-left { animation: slideInLeft 1s ease-out; }
+    .animate-slide-in-right { animation: slideInRight 1s ease-out; }
+</style>
 {% endblock %}

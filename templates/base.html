@@ -7,7 +7,7 @@
     <!-- Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Configuración personalizada de Tailwind si es necesario
+        // Configuración personalizada de Tailwind
         tailwind.config = {
             theme: {
                 extend: {
@@ -21,7 +21,7 @@
     </script>
     {% block extra_head %}{% endblock %}
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
     <header class="bg-gray-800 text-white">
         <nav class="container mx-auto flex justify-center py-4">
             <ul class="flex space-x-6">
@@ -33,12 +33,12 @@
         </nav>
     </header>
 
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-4 py-8 flex-grow">
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="bg-gray-800 text-white text-center py-4">
-        <p>&copy; 2024 Tu Nombre. Todos los derechos reservados.</p>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-auto">
+        <p>&copy; 2025 Thiago Falkievich. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>

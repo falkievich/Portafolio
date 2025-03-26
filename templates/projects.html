@@ -8,18 +8,83 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for project in projects %}
         <div class="bg-white shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105">
+            <!-- Imagen del proyecto con el evento para abrir el modal -->
+            <img src="{{ project.image }}" alt="{{ project.title }}" class="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer" onclick="openModal('{{ project.image }}')">
+
             <h2 class="text-xl font-semibold mb-3">{{ project.title }}</h2>
             <p class="text-gray-600 mb-4">{{ project.description }}</p>
+
             <div class="flex flex-wrap gap-2 mb-4">
                 {% for tech in project.technologies %}
                 <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs">{{ tech }}</span>
                 {% endfor %}
             </div>
-            <a href="{{ project.link }}" class="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition duration-300 inline-block">
-                Ver Proyecto
-            </a>
+
+            <!-- Botón con icono de GitHub -->
+            <div class="flex items-center gap-2">
+                <a href="#" onclick="verificarLink('{{ project.link }}')" 
+                class="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition duration-300 inline-flex items-center">
+                    Ver Proyecto
+                </a>
+                
+                <!-- Icono de GitHub SVG -->
+                <a href="{{ project.link }}" class="text-gray-600 hover:text-black transition duration-300">
+                    <svg width="32px" height="32px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>github [#142]</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs>
+                    </defs>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#000000">
+                                <g id="icons" transform="translate(56.000000, 160.000000)">
+                                    <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]">
+                    </path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            </div>
         </div>
         {% endfor %}
     </div>
 </section>
+
+<!-- Modal para mostrar la imagen ampliada -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+    <div class="relative">
+        <span class="absolute top-0 right-0 text-white text-3xl cursor-pointer" onclick="closeModal()">×</span>
+        <img id="modalImage" src="" alt="Imagen del proyecto" class="max-w-full max-h-full p-4">
+    </div>
+</div>
+
+<script>
+    // Función para abrir el modal con la imagen seleccionada
+    function openModal(imageSrc) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        modal.classList.remove('hidden');
+        modalImage.src = imageSrc;
+    }
+
+    // Función para cerrar el modal
+    function closeModal() {
+        const modal = document.getElementById('imageModal');
+        modal.classList.add('hidden');
+    }
+</script>
+
+<script>
+    function verificarLink(link) {
+        // Convierte el enlace a minúsculas para evitar problemas de mayúsculas/minúsculas
+        if (link.toLowerCase() === "privado") {
+            // Muestra una alerta si el enlace es "privado"
+            alert("El repositorio al cual intentas acceder es privado.");
+        } else {
+            // Si el enlace no es "privado", redirige al usuario al enlace
+            window.location.href = link;
+        }
+    }
+</script>
+
 {% endblock %}
