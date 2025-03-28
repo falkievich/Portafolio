@@ -30,7 +30,7 @@ PROJECTS = [
         "description": "Desarrollo de Aplicación Web para Estudiantes de Fonoaudiología - Diseñé e implementé una plataforma web con autenticación de usuarios, permitiendo a los fonoaudiólogos gestionar perfiles de pacientes, registrar informes clínicos y acceder a herramientas interactivas de enseñanza para niños de 4 a 7 años. La aplicación incorpora juegos educativos diseñados para reforzar habilidades lingüísticas y comunicativas, brindando una experiencia atractiva y funcional. Además, lideré la gestión del proyecto, recopilando requisitos mediante entrevistas con especialistas y adaptando la aplicación a su metodología de trabajo. Coordiné el desarrollo para garantizar una interfaz intuitiva y una funcionalidad alineada con los objetivos terapéuticos, optimizando la experiencia del usuario y la eficacia del proceso de enseñanza.",
         "technologies": ["Node.js", "Tailwind CSS", "JavaScript", "MongoDB Atlas"],
         "image": "/static/images/FonApp_Login.webp",  # Ruta de la imagen
-        "link": "https://github.com/falkievich/FonApp"
+        "link": "privado"
     }
 ]
 
