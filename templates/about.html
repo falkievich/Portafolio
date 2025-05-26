@@ -3,134 +3,158 @@
 {% block title %}Sobre Mí{% endblock %}
 
 {% block content %}
-<script src="https://unpkg.com/lucide@latest"></script>
+<section class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header de la sección -->
+        <div class="text-center mb-16 animate-fade-in">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-text-primary mb-4">
+                Sobre Mí
+            </h1>
+            <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6"></div>
+            <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                Conoce más sobre mi trayectoria, habilidades y pasión por el desarrollo web.
+            </p>
+        </div>
 
-<section class="about py-12">
-    <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-12 animate-fade-in">Sobre Mí</h1>
-    
-        <!-- Video en la parte superior -->
-        <div class="max-w-4xl mx-auto px-6 mb-12">
-            <div class="w-full rounded-lg overflow-hidden shadow-lg">
-                <video 
-                    controls 
-                    class="w-full"
-                    poster="static/images/globo_de_texto_hola.webp" <!-- opcional: imagen de vista previa -->
-                >
-                    <source src="static/videos/Video_de_Presentacion.webm" type="video/mp4">
-                    Tu navegador no soporta videos HTML5.
-                </video>
+        <!-- Video de presentación -->
+        <div class="mb-16 animate-slide-up">
+            <div class="glass-effect rounded-2xl p-6 max-w-4xl mx-auto">
+                <h2 class="font-serif text-2xl font-semibold text-text-primary mb-6 text-center">
+                    Video de Presentación
+                </h2>
+                <div class="relative rounded-xl overflow-hidden shadow-lg">
+                    <video 
+                        controls 
+                        class="w-full"
+                        poster="static/images/globo_de_texto_hola.webp"
+                    >
+                        <source src="static/videos/Video_de_Presentacion.webm" type="video/webm">
+                        Tu navegador no soporta videos HTML5.
+                    </video>
+                </div>
             </div>
         </div>
 
-        <div class="max-w-5xl mx-auto px-6">
-            <!-- Primera Columna: Foto de Perfíl y Sobre Mí -->
-            <div class="grid md:grid-cols-[auto_1fr] gap-8 items-center mb-12">
-                <!-- Foto de Perfíl -->
-                <div class="flex justify-center md:justify-start">
-                    <img 
-                        src="static/images/Foto_Thiago_Perfil.jpg" 
-                        alt="Foto de {{ name }}" 
-                        class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-lg"
-                    >
+        <!-- Perfil y descripción -->
+        <div class="grid lg:grid-cols-[300px_1fr] gap-12 items-start mb-20">
+            <!-- Foto de perfil -->
+            <div class="flex justify-center lg:justify-start animate-fade-in">
+                <div class="relative">
+                    <div class="w-72 h-72 rounded-2xl overflow-hidden shadow-xl">
+                        <img 
+                            src="static/images/Foto_Thiago_Perfil.jpg" 
+                            alt="Foto de Thiago Falkievich" 
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                    <!-- Decoración -->
+                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full animate-pulse"></div>
+                    <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-secondary rounded-full animate-pulse delay-300"></div>
                 </div>
-                
-                <!-- Sobre Mí - Texto -->
-                <div class="about-text animate-slide-in-left">
-                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                        Soy un desarrollador web con una fuerte pasión por el backend, especializado en Python y en la gestión de bases de datos relacionales. Me enfoco en diseñar soluciones tecnológicas eficientes, escalables y bien estructuradas, asegurando un alto rendimiento y seguridad en cada implementación. Además, tengo experiencia en gestión de proyectos, habiendo trabajado como Project Manager en diversos desarrollos, donde he coordinado equipos, recopilado requisitos y optimizado procesos para garantizar el éxito de cada solución. Soy Analista en Sistemas y actualmente curso el quinto año de la carrera de Ingeniería en Sistemas, lo que me permite complementar mi experiencia práctica con una sólida formación académica en el diseño, desarrollo e implementación de software.
+            </div>
+            
+            <!-- Descripción personal -->
+            <div class="animate-slide-up space-y-6">
+                <div class="glass-effect rounded-2xl p-8">
+                    <h2 class="font-serif text-2xl font-semibold text-text-primary mb-6">
+                        Mi Historia
+                    </h2>
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        Soy un desarrollador web con una fuerte pasión por el backend, especializado en Python y en la gestión de bases de datos relacionales. Me enfoco en diseñar soluciones tecnológicas eficientes, escalables y bien estructuradas, asegurando un alto rendimiento y seguridad en cada implementación.
                     </p>
-                    <a href="https://www.canva.com/design/DAF9oU8Qq6w/7GZT07yQ41OPDe58pZOiEQ/edit?utm_content=DAF9oU8Qq6w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" 
+                    <p class="text-text-secondary leading-relaxed mb-6">
+                        Además, tengo experiencia en gestión de proyectos, habiendo trabajado como Project Manager en diversos desarrollos, donde he coordinado equipos, recopilado requisitos y optimizado procesos para garantizar el éxito de cada solución.
+                    </p>
+                    <p class="text-text-secondary leading-relaxed mb-8">
+                        Soy Analista en Sistemas y actualmente curso el quinto año de la carrera de Ingeniería en Sistemas, lo que me permite complementar mi experiencia práctica con una sólida formación académica.
+                    </p>
+                    
+                    <a href="https://www.canva.com/design/DAF9oU8Qq6w/7GZT07yQ41OPDe58pZOiEQ/edit" 
                        target="_blank" 
-                       class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition transform hover:scale-105">
-                        Ver mi CV
+                       class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span>Descargar CV</span>
                     </a>
                 </div>
             </div>
-    
-            <!-- Segunda Columna: Habilidades -->
-            <div class="skills animate-slide-in-right">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-8 text-center">Habilidades</h2>
-                <ul class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    {% set skills = [
-                        ('Python', 'icons/python_icon.svg'),
-                        ('FastAPI', 'icons/fastapi_icon.svg'),
-                        ('Jinja2', 'icons/jinja_icon.svg'),
-                        ('Pydantic', 'icons/pydantic_icon.svg'),
-                        ('Numpy', 'icons/numpy_icon.svg'),
-                        ('SQL Alchemy', 'icons/sql_alchemy_icon.svg'),
-                        ('MySQL', 'icons/mysql_icon.svg'),
-                        ('MongoDB', 'icons/mongodb_icon.svg'),
-                        ('MicroSoft Access', 'icons/microsoft_access_icon.svg'),
-                        ('Docker', 'icons/docker_icon.svg'),
-                        ('Tailwind CSS', 'icons/tailwind_css_icon.svg'),
-                        ('GitHub', 'icons/github_icon.svg'),
-                        ('Vercel', 'icons/vercel_icon.svg'),
-                        ('Trello', 'icons/trello_icon.svg'),
-                        ('Project Manager', 'icons/project_manager_icon.svg'),
-                    ] %}
-                    {% for skill, icon_path in skills %}
-                    <li class="bg-white shadow-md rounded-lg p-4 flex flex-col items-center text-gray-800 font-medium hover:bg-gray-100 transition transform hover:scale-105">
+        </div>
+
+        <!-- Habilidades técnicas -->
+        <div class="mb-20 animate-slide-up">
+            <h2 class="font-serif text-3xl font-semibold text-text-primary mb-12 text-center">
+                Habilidades Técnicas
+            </h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                {% set skills = [
+                    ('Python', 'icons/python_icon.svg', 'bg-soft-blue'),
+                    ('FastAPI', 'icons/fastapi_icon.svg', 'bg-soft-green'),
+                    ('Jinja2', 'icons/jinja_icon.svg', 'bg-soft-pink'),
+                    ('Pydantic', 'icons/pydantic_icon.svg', 'bg-soft-purple'),
+                    ('Numpy', 'icons/numpy_icon.svg', 'bg-soft-blue'),
+                    ('SQL Alchemy', 'icons/sql_alchemy_icon.svg', 'bg-soft-green'),
+                    ('MySQL', 'icons/mysql_icon.svg', 'bg-soft-pink'),
+                    ('MongoDB', 'icons/mongodb_icon.svg', 'bg-soft-purple'),
+                    ('MicroSoft Access', 'icons/microsoft_access_icon.svg', 'bg-soft-blue'),
+                    ('Docker', 'icons/docker_icon.svg', 'bg-soft-green'),
+                    ('Tailwind CSS', 'icons/tailwind_css_icon.svg', 'bg-soft-pink'),
+                    ('GitHub', 'icons/github_icon.svg', 'bg-soft-purple'),
+                    ('Vercel', 'icons/vercel_icon.svg', 'bg-soft-blue'),
+                    ('Trello', 'icons/trello_icon.svg', 'bg-soft-green'),
+                    ('Project Manager', 'icons/project_manager_icon.svg', 'bg-soft-pink'),
+                ] %}
+                
+                {% for skill, icon_path, bg_class in skills %}
+                <div class="group {{bg_class}} rounded-xl p-4 text-center hover:scale-105 transition-all duration-300 hover:shadow-lg cursor-pointer"
+                     style="animation-delay: {{ loop.index0 * 0.05 }}s">
+                    <div class="flex flex-col items-center space-y-3">
                         <img 
                             src="{{ url_for('public', path=icon_path) }}" 
                             alt="{{ skill }} icon" 
-                            class="w-8 h-8 mb-2 object-contain"
+                            class="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
                         >
-                        <span class="text-sm text-center">{{ skill }}</span>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            
-            <!-- Sección de Redes Sociales -->
-            <div class="social-networks mt-16 animate-slide-in-right">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-8 text-center">Conecta Conmigo</h2>
-                <div class="flex justify-center gap-8">
-                    {% set social_networks = [
-                        ('LinkedIn', 'icons/linkedin_icon.svg', 'https://ar.linkedin.com/in/thiago-falkievich-4513b723a?trk=public_profile_browsemap'),
-                        ('Instagram', 'icons/instagram_icon.svg', 'https://www.instagram.com/thiagofalkievich/')
-                    ] %}
-                    {% for network, icon_path, url in social_networks %}
-                    <a 
-                        href="{{ url }}" 
-                        target="_blank" 
-                        class="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-gray-800 font-medium hover:bg-gray-100 transition transform hover:scale-110"
-                        aria-label="Visita mi perfil de {{ network }}"
-                    >
-                        <img 
-                            src="{{ url_for('public', path=icon_path) }}" 
-                            alt="{{ network }} icon" 
-                            class="w-10 h-10 mb-3 object-contain"
-                        >
-                        <span class="text-sm text-center">{{ network }}</span>
-                    </a>
-                    {% endfor %}
+                        <span class="text-sm font-medium text-text-primary group-hover:text-primary transition-colors">
+                            {{ skill }}
+                        </span>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
-    </section>
 
-<script>
-    lucide.createIcons(); // Cargar iconos
-</script>
-
-<style>
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    
-    @keyframes slideInLeft {
-        from { transform: translateX(-50px); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
-    }
-    
-    @keyframes slideInRight {
-        from { transform: translateX(50px); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
-    }
-    
-    .animate-fade-in { animation: fadeIn 1s ease-out; }
-    .animate-slide-in-left { animation: slideInLeft 1s ease-out; }
-    .animate-slide-in-right { animation: slideInRight 1s ease-out; }
-</style>
+        <!-- Redes sociales -->
+        <div class="text-center animate-fade-in">
+            <h2 class="font-serif text-3xl font-semibold text-text-primary mb-12">
+                Conecta Conmigo
+            </h2>
+            
+            <div class="flex justify-center gap-8">
+                {% set social_networks = [
+                    ('LinkedIn', 'icons/linkedin_icon.svg', 'https://ar.linkedin.com/in/thiago-falkievich-4513b723a?trk=public_profile_browsemap', 'bg-soft-blue'),
+                    ('Instagram', 'icons/instagram_icon.svg', 'https://www.instagram.com/thiagofalkievich/', 'bg-soft-pink')
+                ] %}
+                
+                {% for network, icon_path, url, bg_class in social_networks %}
+                <a 
+                    href="{{ url }}" 
+                    target="_blank" 
+                    class="group {{bg_class}} rounded-2xl p-8 flex flex-col items-center hover:scale-105 transition-all duration-300 hover:shadow-lg min-w-[120px]"
+                    aria-label="Visita mi perfil de {{ network }}"
+                >
+                    <img 
+                        src="{{ url_for('public', path=icon_path) }}" 
+                        alt="{{ network }} icon" 
+                        class="w-12 h-12 mb-4 object-contain group-hover:scale-110 transition-transform"
+                    >
+                    <span class="text-sm font-semibold text-text-primary group-hover:text-primary transition-colors">
+                        {{ network }}
+                    </span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

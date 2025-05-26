@@ -3,14 +3,108 @@
 {% block title %}{{ name }} - Portfolio{% endblock %}
 
 {% block content %}
-<section class="flex flex-col items-center justify-center text-center space-y-6">
-    <div class="hero-content">
-        <h1 class="text-4xl font-bold mb-2">{{ name }}</h1>
-        <h2 class="text-2xl text-gray-600 mb-4">{{ title }}</h2>
-        <p class="text-lg text-gray-500 mb-6">Desarrollador apasionado creando soluciones web innovadoras.</p>
-        <a href="/projects" class="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition duration-300">
-            Ver Proyectos
-        </a>
+<section class="min-h-screen flex items-center justify-center px-6">
+    <div class="max-w-4xl mx-auto text-center">
+        <!-- Hero principal -->
+        <div class="animate-fade-in">
+            <!-- Imagen de perfil flotante -->
+            <div class="mb-8 flex justify-center">
+                <div class="relative">
+                    <div class="w-32 h-32 rounded-full gradient-bg p-1 animate-float">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center">
+                            <span class="text-4xl font-serif font-bold text-primary">TF</span>
+                        </div>
+                    </div>
+                    <!-- Decoración -->
+                    <div class="absolute -top-2 -right-2 w-6 h-6 bg-secondary rounded-full animate-pulse"></div>
+                    <div class="absolute -bottom-1 -left-1 w-4 h-4 bg-accent rounded-full animate-pulse delay-300"></div>
+                </div>
+            </div>
+            
+            <!-- Texto principal -->
+            <h1 class="font-serif text-5xl md:text-7xl font-bold text-text-primary mb-4 leading-tight">
+                {{ name }}
+            </h1>
+            
+            <div class="mb-6">
+                <h2 class="text-xl md:text-2xl text-text-secondary mb-2 font-medium">
+                    {{ title }}
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <p class="text-lg md:text-xl text-text-secondary mb-8 max-w-2xl mx-auto leading-relaxed">
+                Desarrollador apasionado creando soluciones web innovadoras con 
+                <span class="text-primary font-semibold">Python</span>, 
+                <span class="text-secondary font-semibold">FastAPI</span> y 
+                <span class="text-accent font-semibold">tecnologías modernas</span>.
+            </p>
+            
+            <!-- Botones de acción -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                <a href="/projects" 
+                   class="group bg-primary hover:bg-primary/90 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2">
+                    <span>Ver Proyectos</span>
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+                
+                <a href="/contact" 
+                   class="group border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                    Contactar
+                </a>
+            </div>
+        </div>
+        
+        <!-- Estadísticas rápidas -->
+        <div class="animate-slide-up grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div class="glass-effect rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                <div class="text-3xl font-bold text-primary mb-2">2+</div>
+                <div class="text-text-secondary font-medium">Años de Experiencia</div>
+            </div>
+            
+            <div class="glass-effect rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                <div class="text-3xl font-bold text-secondary mb-2">15+</div>
+                <div class="text-text-secondary font-medium">Tecnologías Dominadas</div>
+            </div>
+            
+            <div class="glass-effect rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                <div class="text-3xl font-bold text-accent mb-2">5°</div>
+                <div class="text-text-secondary font-medium">Año Ing. Sistemas</div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de tecnologías destacadas -->
+<section class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+        <h3 class="text-3xl font-serif font-semibold text-center text-text-primary mb-12">
+            Tecnologías Principales
+        </h3>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {% set tech_stack = [
+                ('Python', 'bg-soft-blue'),
+                ('FastAPI', 'bg-soft-green'),
+                ('MySQL', 'bg-soft-pink'),
+                ('Docker', 'bg-soft-purple')
+            ] %}
+            
+            {% for tech, bg_color in tech_stack %}
+            <div class="{{bg_color}} rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 hover:shadow-lg">
+                <div class="text-lg font-semibold text-text-primary">{{ tech }}</div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </section>
 {% endblock %}

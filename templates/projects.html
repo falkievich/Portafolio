@@ -3,88 +3,193 @@
 {% block title %}Mis Proyectos{% endblock %}
 
 {% block content %}
-<section class="projects">
-    <h1 class="text-3xl font-bold text-center mb-8">Mis Proyectos</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {% for project in projects %}
-        <div class="bg-white shadow-md rounded-lg p-6 transform transition duration-300 hover:scale-105">
-            <!-- Imagen del proyecto con el evento para abrir el modal -->
-            <img src="{{ project.image }}" alt="{{ project.title }}" class="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer" onclick="openModal('{{ project.image }}')">
-
-            <h2 class="text-xl font-semibold mb-3">{{ project.title }}</h2>
-            <p class="text-gray-600 mb-4">{{ project.description }}</p>
-
-            <div class="flex flex-wrap gap-2 mb-4">
-                {% for tech in project.technologies %}
-                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs">{{ tech }}</span>
-                {% endfor %}
-            </div>
-
-            <!-- Botón con icono de GitHub -->
-            <div class="flex items-center gap-2">
-                <a href="#" onclick="verificarLink('{{ project.link }}')" 
-                class="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition duration-300 inline-flex items-center">
-                    Ver Proyecto
-                </a>
-                
-                <!-- Icono de GitHub SVG -->
-                <a href="{{ project.link }}" class="text-gray-600 hover:text-black transition duration-300">
-                    <svg width="32px" height="32px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <title>github [#142]</title>
-                        <desc>Created with Sketch.</desc>
-                        <defs>
-                    </defs>
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#000000">
-                                <g id="icons" transform="translate(56.000000, 160.000000)">
-                                    <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]">
-                    </path>
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
-                </a>
-            </div>
+<section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header de la sección -->
+        <div class="text-center mb-16 animate-fade-in">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-text-primary mb-4">
+                Mis Proyectos
+            </h1>
+            <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6"></div>
+            <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                Explora una selección de mis trabajos más destacados, donde combino tecnología y creatividad para crear soluciones innovadoras.
+            </p>
         </div>
-        {% endfor %}
+        
+        <!-- Grid de proyectos -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {% for project in projects %}
+            <article class="group glass-effect rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl animate-slide-up" style="animation-delay: {{ loop.index0 * 0.1 }}s">
+                <!-- Imagen del proyecto -->
+                <div class="relative overflow-hidden h-64">
+                    <img src="{{ project.image }}" 
+                         alt="{{ project.title }}" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 cursor-pointer" 
+                         onclick="openModal('{{ project.image }}')">
+                    
+                    <!-- Overlay con efecto hover -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <!-- Badge de estado -->
+                    <div class="absolute top-4 right-4">
+                        {% if project.link == "privado" %}
+                        <span class="bg-secondary/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Privado
+                        </span>
+                        {% else %}
+                        <span class="bg-accent/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Público
+                        </span>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Contenido del proyecto -->
+                <div class="p-8">
+                    <h2 class="font-serif text-xl font-semibold text-text-primary mb-4 line-clamp-2 group-hover:text-primary transition-colors">
+                        {{ project.title }}
+                    </h2>
+                    
+                    <p class="text-text-secondary mb-6 line-clamp-3 leading-relaxed">
+                        {{ project.description }}
+                    </p>
+                    
+                    <!-- Tecnologías -->
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        {% for tech in project.technologies %}
+                        <span class="bg-soft-purple text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">
+                            {{ tech }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- Botones de acción -->
+                    <div class="flex items-center justify-between">
+                        <button onclick="verificarLink('{{ project.link }}')" 
+                                class="bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                            <span>Ver Proyecto</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </button>
+                        
+                        <!-- Icono de GitHub mejorado -->
+                        <a href="{{ project.link }}" 
+                           class="p-3 rounded-full hover:bg-soft-purple transition-colors group/github">
+                            <svg class="w-6 h-6 text-text-secondary group-hover/github:text-primary transition-colors" 
+                                 fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
     </div>
 </section>
 
-<!-- Modal para mostrar la imagen ampliada -->
-<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
-    <div class="relative">
-        <span class="absolute top-0 right-0 text-white text-3xl cursor-pointer" onclick="closeModal()">×</span>
-        <img id="modalImage" src="" alt="Imagen del proyecto" class="max-w-full max-h-full p-4">
+<!-- Modal mejorado para imágenes -->
+<div id="imageModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center hidden z-50 p-4">
+    <div class="relative max-w-4xl max-h-full">
+        <!-- Botón de cerrar -->
+        <button onclick="closeModal()" 
+                class="absolute -top-12 right-0 text-white hover:text-primary text-2xl font-bold bg-white/10 rounded-full w-10 h-10 flex items-center justify-center transition-colors">
+            ×
+        </button>
+        
+        <!-- Imagen -->
+        <img id="modalImage" 
+             src="/placeholder.svg" 
+             alt="Imagen del proyecto" 
+             class="max-w-full max-h-full rounded-lg shadow-2xl">
     </div>
 </div>
 
 <script>
-    // Función para abrir el modal con la imagen seleccionada
+    // Función para abrir el modal con animación
     function openModal(imageSrc) {
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
-        modal.classList.remove('hidden');
+        
         modalImage.src = imageSrc;
+        modal.classList.remove('hidden');
+        
+        // Animación de entrada
+        setTimeout(() => {
+            modal.style.opacity = '1';
+            modalImage.style.transform = 'scale(1)';
+        }, 10);
     }
 
-    // Función para cerrar el modal
+    // Función para cerrar el modal con animación
     function closeModal() {
         const modal = document.getElementById('imageModal');
-        modal.classList.add('hidden');
+        const modalImage = document.getElementById('modalImage');
+        
+        modal.style.opacity = '0';
+        modalImage.style.transform = 'scale(0.9)';
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
     }
-</script>
 
-<script>
+    // Cerrar modal con ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    // Función para verificar enlaces
     function verificarLink(link) {
-        // Convierte el enlace a minúsculas para evitar problemas de mayúsculas/minúsculas
         if (link.toLowerCase() === "privado") {
-            // Muestra una alerta si el enlace es "privado"
-            alert("El repositorio al cual intentas acceder es privado.");
+            // Alerta personalizada más elegante
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'fixed top-4 right-4 bg-secondary text-white px-6 py-4 rounded-lg shadow-lg z-50 animate-slide-up';
+            alertDiv.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    <span>El repositorio es privado</span>
+                </div>
+            `;
+            document.body.appendChild(alertDiv);
+            
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 3000);
         } else {
-            // Si el enlace no es "privado", redirige al usuario al enlace
-            window.location.href = link;
+            window.open(link, '_blank');
         }
     }
 </script>
 
+<style>
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    #imageModal {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    #modalImage {
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+    }
+</style>
 {% endblock %}
