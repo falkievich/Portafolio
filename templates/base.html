@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,34 +11,43 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Configuración personalizada de Tailwind con paleta pastel
+        // Configuración profesional de Tailwind
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        'primary': '#a78bfa',      // Violeta pastel
-                        'secondary': '#fbbf24',    // Amarillo pastel
-                        'accent': '#34d399',       // Verde menta
-                        'soft-pink': '#fce7f3',    // Rosa suave
-                        'soft-blue': '#dbeafe',    // Azul suave
-                        'soft-purple': '#ede9fe',  // Púrpura suave
-                        'soft-green': '#d1fae5',   // Verde suave
-                        'text-primary': '#1e293b', // Gris oscuro
-                        'text-secondary': '#64748b' // Gris medio
+                        'primary': '#1e40af',        // Azul corporativo
+                        'secondary': '#3b82f6',      // Azul brillante
+                        'accent': '#60a5fa',         // Azul claro
+                        'dark': '#0f172a',           // Negro azulado
+                        'dark-blue': '#1e293b',      // Azul oscuro
+                        'light-blue': '#e0f2fe',     // Azul muy claro
+                        'gray-light': '#f1f5f9',     // Gris claro
+                        'text-primary': '#0f172a',   // Texto principal
+                        'text-secondary': '#475569', // Texto secundario
+                        'text-muted': '#64748b'      // Texto atenuado
                     },
                     fontFamily: {
                         'sans': ['Inter', 'sans-serif'],
-                        'serif': ['Playfair Display', 'serif']
+                        'heading': ['Poppins', 'sans-serif']
                     },
                     animation: {
                         'fade-in': 'fadeIn 0.8s ease-out',
                         'slide-up': 'slideUp 0.6s ease-out',
-                        'float': 'float 3s ease-in-out infinite'
+                        'slide-down': 'slideDown 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s infinite'
+                    },
+                    boxShadow: {
+                        'professional': '0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        'card-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
                     }
                 }
             }
@@ -52,48 +61,199 @@
         }
         
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
         
-        .gradient-bg {
-            background: linear-gradient(135deg, #a78bfa 0%, #fbbf24 50%, #34d399 100%);
+        .glass-professional {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(30, 64, 175, 0.1);
+        }
+        
+        .gradient-professional {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #3b82f6 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background: #1e40af;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .card-professional {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-professional:hover {
+            transform: translateY(-8px);
+        }
+        
+        /* Estilos para modo oscuro */
+        .dark .bg-gray-50 {
+            background-color: #0f172a;
+        }
+        
+        .dark .bg-white {
+            background-color: #1e293b;
+        }
+        
+        .dark .bg-gray-100 {
+            background-color: #1e293b;
+        }
+        
+        .dark .text-text-primary {
+            color: #f1f5f9;
+        }
+
+
+        
+        .dark .text-text-secondary {
+            color: #cbd5e1;
+        }
+        
+        .dark .text-text-muted {
+            color: #94a3b8;
+        }
+        
+        .dark .border-gray-100,
+        .dark .border-gray-200 {
+            border-color: #334155;
+        }
+        
+        .dark .hover\:bg-gray-100:hover {
+            background-color: #334155;
+        }
+        
+        .dark .glass-professional {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #60a5fa, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .dark .gradient-professional {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #3b82f6 100%);
+        }
+        
+        /* Animación para el toggle de tema */
+        .theme-toggle-icon {
+            transition: transform 0.5s ease, opacity 0.3s ease;
+        }
+        
+        .theme-toggle-sun {
+            transform-origin: center center;
+        }
+        
+        .theme-toggle-moon {
+            transform-origin: center center;
+        }
+        
+        .dark .theme-toggle-sun {
+            transform: rotate(100deg) scale(0);
+            opacity: 0;
+        }
+        
+        .dark .theme-toggle-moon {
+            transform: rotate(0) scale(1);
+            opacity: 1;
+        }
+        
+        .theme-toggle-sun {
+            transform: rotate(0) scale(1);
+            opacity: 1;
+        }
+        
+        .theme-toggle-moon {
+            transform: rotate(-100deg) scale(0);
+            opacity: 0;
+        }
+        
+        /* Transición suave para cambios de tema */
+        body, .glass-professional, .bg-white, .bg-gray-50, .bg-gray-100, 
+        .text-text-primary, .text-text-secondary, .text-text-muted,
+        .border-gray-100, .border-gray-200 {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
     </style>
     
     {% block extra_head %}{% endblock %}
 </head>
-<body class="bg-gradient-to-br from-soft-purple via-soft-pink to-soft-blue min-h-screen text-text-primary font-sans">
-    <!-- Header con efecto glass -->
-    <header class="glass-effect sticky top-0 z-50 border-b border-white/20">
+<body class="bg-gray-50 text-text-primary font-sans antialiased">
+    <!-- Header profesional con navegación fija -->
+    <header class="glass-professional fixed top-0 left-0 right-0 z-50 border-b border-primary/10 dark:border-primary/20">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <!-- Logo/Nombre -->
-                <div class="font-serif text-2xl font-semibold text-primary">
-                    Thiago Falkievich
+                <!-- Logo/Marca profesional -->
+                <div class="flex items-center space-x-3">
+                    <div class="font-heading text-xl font-semibold text-text-primary">
+                        TF
+                    </div>
                 </div>
                 
-                <!-- Navegación -->
+                <!-- Navegación desktop -->
                 <ul class="hidden md:flex space-x-8">
-                    <li><a href="/" class="nav-link relative text-text-primary hover:text-primary transition-all duration-300 font-medium">Inicio</a></li>
-                    <li><a href="/projects" class="nav-link relative text-text-primary hover:text-primary transition-all duration-300 font-medium">Proyectos</a></li>
-                    <li><a href="/about" class="nav-link relative text-text-primary hover:text-primary transition-all duration-300 font-medium">Sobre Mí</a></li>
-                    <li><a href="/contact" class="nav-link relative text-text-primary hover:text-primary transition-all duration-300 font-medium">Contacto</a></li>
+                    <li><a href="/" class="nav-link relative text-text-primary hover:text-primary transition-all duration-300 font-medium py-2">Inicio</a></li>
+                    <li><a href="/projects" class="nav-link relative text-text-primary hover:text-primary transition-all duration-300 font-medium py-2">Proyectos</a></li>
+                    <li><a href="/about" class="nav-link relative text-text-primary hover:text-primary transition-all duration-300 font-medium py-2">Sobre Mí</a></li>
+                    <li><a href="/contact" class="nav-link relative text-text-primary hover:text-primary transition-all duration-300 font-medium py-2">Contacto</a></li>
                 </ul>
                 
+                <!-- Theme Toggle Button -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button id="theme-toggle" class="relative w-10 h-10 p-2 rounded-full bg-gray-100 dark:bg-dark hover:bg-gray-200 dark:hover:bg-dark-blue transition-colors focus:outline-none focus:ring-2 focus:ring-primary">
+                        <!-- Sun Icon -->
+                        <svg class="theme-toggle-icon theme-toggle-sun w-6 h-6 text-yellow-500 absolute top-2 left-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg class="theme-toggle-icon theme-toggle-moon w-6 h-6 text-blue-300 absolute top-2 left-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- CTA Button -->
+                    <a href="/contact" class="bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-card">
+                        Contratar
+                    </a>
+                </div>
+                
                 <!-- Menú móvil -->
-                <button class="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors" onclick="toggleMobileMenu()">
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-dark-blue transition-colors" onclick="toggleMobileMenu()">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -101,43 +261,100 @@
             </div>
             
             <!-- Menú móvil desplegable -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <ul class="space-y-3">
-                    <li><a href="/" class="block py-2 px-4 rounded-lg hover:bg-white/20 transition-colors">Inicio</a></li>
-                    <li><a href="/projects" class="block py-2 px-4 rounded-lg hover:bg-white/20 transition-colors">Proyectos</a></li>
-                    <li><a href="/about" class="block py-2 px-4 rounded-lg hover:bg-white/20 transition-colors">Sobre Mí</a></li>
-                    <li><a href="/contact" class="block py-2 px-4 rounded-lg hover:bg-white/20 transition-colors">Contacto</a></li>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700">
+                <ul class="space-y-3 pt-4">
+                    <li><a href="/" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-dark-blue transition-colors font-medium">Inicio</a></li>
+                    <li><a href="/projects" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-dark-blue transition-colors font-medium">Proyectos</a></li>
+                    <li><a href="/about" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-dark-blue transition-colors font-medium">Sobre Mí</a></li>
+                    <li><a href="/contact" class="block py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-dark-blue transition-colors font-medium">Contacto</a></li>
+                    <li class="py-2 px-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary dark:text-gray-300 font-medium">Modo Oscuro</span>
+                            <button id="theme-toggle-mobile" class="relative w-10 h-10 p-2 rounded-full bg-gray-100 dark:bg-dark hover:bg-gray-200 dark:hover:bg-dark-blue transition-colors focus:outline-none focus:ring-2 focus:ring-primary">
+                                <!-- Sun Icon -->
+                                <svg class="theme-toggle-icon theme-toggle-sun w-6 h-6 text-yellow-500 absolute top-2 left-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                                </svg>
+                                <!-- Moon Icon -->
+                                <svg class="theme-toggle-icon theme-toggle-moon w-6 h-6 text-blue-300 absolute top-2 left-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="pt-2">
+                        <a href="/contact" class="block bg-primary text-white text-center font-semibold py-3 px-4 rounded-lg">
+                            Contratar
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
+
+    <!-- Espaciado para header fijo -->
+    <div class="h-20"></div>
 
     <!-- Contenido principal -->
     <main class="flex-grow">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer mejorado -->
-    <footer class="glass-effect border-t border-white/20 mt-20">
-        <div class="container mx-auto px-6 py-8">
-            <div class="text-center">
-                <div class="font-serif text-xl font-semibold text-primary mb-2">Thiago Falkievich</div>
-                <p class="text-text-secondary mb-4">Desarrollador Web & Analista en Sistemas</p>
-                <div class="flex justify-center space-x-6 mb-4">
-                    <a href="https://ar.linkedin.com/in/thiago-falkievich-4513b723a" target="_blank" class="text-text-secondary hover:text-primary transition-colors">
-                        <span class="sr-only">LinkedIn</span>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/thiagofalkievich/" target="_blank" class="text-text-secondary hover:text-primary transition-colors">
-                        <span class="sr-only">Instagram</span>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
+    <!-- Footer profesional -->
+    <footer class="bg-dark text-white mt-20 dark:bg-black">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Información personal -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-heading font-bold">TF</span>
+                        </div>
+                        <div class="font-heading text-lg font-semibold">Thiago Falkievich</div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Desarrollador Web especializado en Python y FastAPI. Creando soluciones tecnológicas innovadoras.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://ar.linkedin.com/in/thiago-falkievich-4513b723a" target="_blank" 
+                           class="text-gray-400 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/thiagofalkievich/" target="_blank" 
+                           class="text-gray-400 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                <p class="text-sm text-text-secondary">&copy; 2025 Thiago Falkievich. Todos los derechos reservados.</p>
+                
+                <!-- Enlaces rápidos -->
+                <div>
+                    <h3 class="font-heading font-semibold text-lg mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-300 hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="/projects" class="text-gray-300 hover:text-white transition-colors">Proyectos</a></li>
+                        <li><a href="/about" class="text-gray-300 hover:text-white transition-colors">Sobre Mí</a></li>
+                        <li><a href="/contact" class="text-gray-300 hover:text-white transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contacto -->
+                <div>
+                    <h3 class="font-heading font-semibold text-lg mb-4">Contacto</h3>
+                    <div class="space-y-2 text-gray-300">
+                        <p>Corrientes, Argentina</p>
+                        <p>+54 3794 215812</p>
+                        <p>thiagofalkiev@hotmail.com.ar</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Thiago Falkievich. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -156,8 +373,41 @@
             
             navLinks.forEach(link => {
                 if (link.getAttribute('href') === currentPath) {
-                    link.classList.add('text-primary', 'font-semibold');
+                    link.classList.add('text-primary', 'active');
                 }
+            });
+            
+            // Inicializar tema según preferencia guardada
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            const htmlElement = document.documentElement;
+            
+            if (isDarkMode) {
+                htmlElement.classList.add('dark');
+            } else {
+                htmlElement.classList.remove('dark');
+            }
+            
+            // Manejar cambio de tema
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            
+            function toggleDarkMode() {
+                htmlElement.classList.toggle('dark');
+                const isDark = htmlElement.classList.contains('dark');
+                localStorage.setItem('darkMode', isDark);
+            }
+            
+            themeToggle.addEventListener('click', toggleDarkMode);
+            themeToggleMobile.addEventListener('click', toggleDarkMode);
+        });
+        
+        // Smooth scroll para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>

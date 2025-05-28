@@ -1,82 +1,106 @@
 {% extends "base.html" %}
 
-{% block title %}Mis Proyectos{% endblock %}
+{% block title %}Proyectos Profesionales{% endblock %}
 
 {% block content %}
-<section class="py-20 px-6">
-    <div class="max-w-7xl mx-auto">
-        <!-- Header de la sección -->
+<section class="py-20">
+    <div class="container mx-auto px-6">
+        <!-- Header profesional -->
         <div class="text-center mb-16 animate-fade-in">
-            <h1 class="font-serif text-4xl md:text-5xl font-bold text-text-primary mb-4">
-                Mis Proyectos
+            <h1 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                Proyectos <span class="gradient-text">Destacados</span>
             </h1>
-            <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6"></div>
-            <p class="text-lg text-text-secondary max-w-2xl mx-auto">
-                Explora una selección de mis trabajos más destacados, donde combino tecnología y creatividad para crear soluciones innovadoras.
+            <p class="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Una selección de mis trabajos más significativos, donde he aplicado tecnologías modernas 
+                para resolver desafíos complejos y crear soluciones innovadoras.
             </p>
         </div>
         
-        <!-- Grid de proyectos -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Grid de proyectos profesional -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
             {% for project in projects %}
-            <article class="group glass-effect rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl animate-slide-up" style="animation-delay: {{ loop.index0 * 0.1 }}s">
-                <!-- Imagen del proyecto -->
-                <div class="relative overflow-hidden h-64">
+            <article class="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover card-professional animate-slide-up" 
+                     style="animation-delay: {{ loop.index0 * 0.1 }}s">
+                
+                <!-- Imagen del proyecto con overlay profesional -->
+                <div class="relative overflow-hidden h-80">
                     <img src="{{ project.image }}" 
                          alt="{{ project.title }}" 
-                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 cursor-pointer" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer" 
                          onclick="openModal('{{ project.image }}')">
                     
-                    <!-- Overlay con efecto hover -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <!-- Overlay gradiente -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     
-                    <!-- Badge de estado -->
-                    <div class="absolute top-4 right-4">
+                    <!-- Badge de estado profesional -->
+                    <div class="absolute top-6 right-6">
                         {% if project.link == "privado" %}
-                        <span class="bg-secondary/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+                        <span class="bg-dark/90 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium border border-white/20">
+                            <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
                             Privado
                         </span>
                         {% else %}
-                        <span class="bg-accent/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+                        <span class="bg-primary/90 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium border border-white/20">
+                            <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
                             Público
                         </span>
                         {% endif %}
+                    </div>
+                    
+                    <!-- Botón de vista rápida -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button onclick="openModal('{{ project.image }}')" 
+                                class="bg-white/20 backdrop-blur-sm text-white p-4 rounded-full hover:bg-white/30 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
                 
                 <!-- Contenido del proyecto -->
                 <div class="p-8">
-                    <h2 class="font-serif text-xl font-semibold text-text-primary mb-4 line-clamp-2 group-hover:text-primary transition-colors">
+                    <!-- Título y descripción -->
+                    <h2 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-4 line-clamp-2 group-hover:text-primary transition-colors">
                         {{ project.title }}
                     </h2>
                     
-                    <p class="text-text-secondary mb-6 line-clamp-3 leading-relaxed">
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 line-clamp-4 leading-relaxed">
                         {{ project.description }}
                     </p>
                     
-                    <!-- Tecnologías -->
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        {% for tech in project.technologies %}
-                        <span class="bg-soft-purple text-primary px-3 py-1 rounded-full text-sm font-medium border border-primary/20">
-                            {{ tech }}
-                        </span>
-                        {% endfor %}
+                    <!-- Stack tecnológico -->
+                    <div class="mb-8">
+                        <h4 class="text-sm font-semibold text-gray-900 dark:text-white mb-3 uppercase tracking-wide">Stack Tecnológico</h4>
+                        <div class="flex flex-wrap gap-2">
+                            {% for tech in project.technologies %}
+                            <span class="bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 px-3 py-1.5 rounded-lg text-sm font-medium border border-gray-200 dark:border-gray-600 hover:border-primary hover:text-primary transition-colors">
+                                {{ tech }}
+                            </span>
+                            {% endfor %}
+                        </div>
                     </div>
                     
-                    <!-- Botones de acción -->
-                    <div class="flex items-center justify-between">
+                    <!-- Acciones del proyecto -->
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
                         <button onclick="verificarLink('{{ project.link }}')" 
-                                class="bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                                class="bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2 shadow-card">
                             <span>Ver Proyecto</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                             </svg>
                         </button>
                         
-                        <!-- Icono de GitHub mejorado -->
+                        <!-- Enlace a repositorio -->
                         <a href="{{ project.link }}" 
-                           class="p-3 rounded-full hover:bg-soft-purple transition-colors group/github">
-                            <svg class="w-6 h-6 text-text-secondary group-hover/github:text-primary transition-colors" 
+                           class="p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group/github" 
+                           title="Ver repositorio">
+                            <svg class="w-6 h-6 text-gray-600 dark:text-gray-400 group-hover/github:text-primary transition-colors" 
                                  fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
                             </svg>
@@ -86,34 +110,65 @@
             </article>
             {% endfor %}
         </div>
+        
+        <!-- Call to action -->
+        <div class="text-center mt-16">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-card max-w-2xl mx-auto">
+                <h3 class="font-heading text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    ¿Tienes un proyecto en mente?
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-6">
+                    Me encantaría ayudarte a convertir tu idea en una solución tecnológica exitosa.
+                </p>
+                <a href="/contact" 
+                   class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-card">
+                    <span>Iniciar Proyecto</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Modal mejorado para imágenes -->
-<div id="imageModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center hidden z-50 p-4">
-    <div class="relative max-w-4xl max-h-full">
-        <!-- Botón de cerrar -->
+<!-- Modal profesional para imágenes con tamaño estándar -->
+<div id="imageModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm flex justify-center items-center hidden z-50 p-4" onclick="closeModal()">
+    <div class="relative w-full max-w-4xl max-h-[90vh] flex flex-col items-center" onclick="event.stopPropagation()">
+        <!-- Botón de cerrar SIEMPRE visible -->
         <button onclick="closeModal()" 
-                class="absolute -top-12 right-0 text-white hover:text-primary text-2xl font-bold bg-white/10 rounded-full w-10 h-10 flex items-center justify-center transition-colors">
-            ×
+                class="absolute -top-16 right-0 text-white hover:text-red-400 bg-black/50 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300 border border-white/20 hover:border-red-400 z-10 shadow-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
         </button>
         
-        <!-- Imagen -->
-        <img id="modalImage" 
-             src="/placeholder.svg" 
-             alt="Imagen del proyecto" 
-             class="max-w-full max-h-full rounded-lg shadow-2xl">
+        <!-- Contenedor de imagen con tamaño fijo -->
+        <div class="w-full h-full max-h-[80vh] bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden shadow-2xl border border-white/10">
+            <img id="modalImage" 
+                 src="/placeholder.svg" 
+                 alt="Imagen del proyecto" 
+                 class="w-full h-full object-contain">
+        </div>
+        
+        <!-- Información adicional -->
+        <div class="mt-4 text-center">
+            <p class="text-white/80 text-sm">Presiona <kbd class="bg-white/20 px-2 py-1 rounded text-xs">ESC</kbd> o haz clic fuera de la imagen para cerrar</p>
+        </div>
     </div>
 </div>
 
 <script>
-    // Función para abrir el modal con animación
+    // Función para abrir el modal con animación profesional
     function openModal(imageSrc) {
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         
         modalImage.src = imageSrc;
         modal.classList.remove('hidden');
+        
+        // Prevenir scroll del body
+        document.body.style.overflow = 'hidden';
         
         // Animación de entrada
         setTimeout(() => {
@@ -122,13 +177,16 @@
         }, 10);
     }
 
-    // Función para cerrar el modal con animación
+    // Función para cerrar el modal
     function closeModal() {
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         
         modal.style.opacity = '0';
-        modalImage.style.transform = 'scale(0.9)';
+        modalImage.style.transform = 'scale(0.95)';
+        
+        // Restaurar scroll del body
+        document.body.style.overflow = 'auto';
         
         setTimeout(() => {
             modal.classList.add('hidden');
@@ -142,25 +200,30 @@
         }
     });
 
-    // Función para verificar enlaces
+    // Función para verificar enlaces con notificación profesional
     function verificarLink(link) {
         if (link.toLowerCase() === "privado") {
-            // Alerta personalizada más elegante
-            const alertDiv = document.createElement('div');
-            alertDiv.className = 'fixed top-4 right-4 bg-secondary text-white px-6 py-4 rounded-lg shadow-lg z-50 animate-slide-up';
-            alertDiv.innerHTML = `
-                <div class="flex items-center gap-3">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                    </svg>
-                    <span>El repositorio es privado</span>
+            // Notificación profesional
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-24 right-6 bg-white dark:bg-gray-800 border-l-4 border-primary shadow-professional rounded-lg p-4 z-50 animate-slide-down max-w-sm';
+            notification.innerHTML = `
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h4 class="text-sm font-semibold text-gray-900 dark:text-white">Repositorio Privado</h4>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 mt-1">Este proyecto contiene información confidencial del cliente.</p>
+                    </div>
                 </div>
             `;
-            document.body.appendChild(alertDiv);
+            document.body.appendChild(notification);
             
             setTimeout(() => {
-                alertDiv.remove();
-            }, 3000);
+                notification.remove();
+            }, 4000);
         } else {
             window.open(link, '_blank');
         }
@@ -175,9 +238,9 @@
         overflow: hidden;
     }
     
-    .line-clamp-3 {
+    .line-clamp-4 {
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -188,8 +251,13 @@
     }
     
     #modalImage {
-        transform: scale(0.9);
+        transform: scale(0.95);
         transition: transform 0.3s ease;
+    }
+
+    /* Estilo para el teclado kbd */
+    kbd {
+        font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
     }
 </style>
 {% endblock %}

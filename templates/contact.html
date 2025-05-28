@@ -4,104 +4,159 @@
 <script src="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/icons.min.js"></script>
 {% endblock %}
 
-{% block title %}Contacto{% endblock %}
+{% block title %}Contacto Profesional{% endblock %}
 
 {% block content %}
-<section class="py-20 px-6">
-    <div class="max-w-6xl mx-auto">
-        <!-- Header de la sección -->
+<section class="py-20">
+    <div class="container mx-auto px-6">
+        <!-- Header profesional -->
         <div class="text-center mb-16 animate-fade-in">
-            <h1 class="font-serif text-4xl md:text-5xl font-bold text-text-primary mb-4">
-                Contacto
+            <h1 class="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-6">
+                Hablemos de tu <span class="gradient-text">Proyecto</span>
             </h1>
-            <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6"></div>
-            <p class="text-lg text-text-secondary max-w-2xl mx-auto">
-                ¿Tienes un proyecto en mente? Me encantaría escuchar sobre él y ayudarte a hacerlo realidad.
+            <p class="text-lg text-text-secondary max-w-3xl mx-auto leading-relaxed">
+                ¿Tienes una idea innovadora? Me especializo en convertir conceptos en soluciones tecnológicas 
+                robustas y escalables. Contactemos para discutir cómo puedo ayudarte.
             </p>
         </div>
         
-        <div class="grid lg:grid-cols-2 gap-12 items-start">
-            <!-- Información de Contacto -->
+        <div class="grid lg:grid-cols-2 gap-16 items-start max-w-7xl mx-auto">
+            <!-- Información de contacto profesional -->
             <div class="animate-slide-up">
-                <div class="glass-effect rounded-2xl p-8 mb-8">
-                    <h2 class="font-serif text-2xl font-semibold text-text-primary mb-8 text-center">
+                <!-- Información principal -->
+                <div class="bg-white rounded-2xl p-8 shadow-card mb-8">
+                    <h2 class="font-heading text-2xl font-bold text-text-primary mb-8 flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                        </div>
                         Información de Contacto
                     </h2>
                     
                     <div class="space-y-6">
-                        <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-soft-purple transition-colors">
-                            <div class="bg-primary/10 p-3 rounded-full">
+                        <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/80 transition-colors group">
+                            <div class="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-colors">
                                 <i data-lucide="map-pin" class="w-6 h-6 text-primary"></i>
                             </div>
                             <div>
                                 <h3 class="font-semibold text-text-primary mb-1">Ubicación</h3>
                                 <p class="text-text-secondary">Corrientes, Corrientes Capital, Argentina</p>
+                                <p class="text-sm text-text-muted mt-1">Disponible para trabajo remoto</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-soft-blue transition-colors">
-                            <div class="bg-secondary/10 p-3 rounded-full">
+                        <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/80 transition-colors group">
+                            <div class="bg-secondary/10 p-3 rounded-lg group-hover:bg-secondary/20 transition-colors">
                                 <i data-lucide="phone" class="w-6 h-6 text-secondary"></i>
                             </div>
                             <div>
                                 <h3 class="font-semibold text-text-primary mb-1">Teléfono</h3>
-                                <a href="tel:+5437942158122" class="text-text-secondary hover:text-secondary transition-colors">
+                                <a href="tel:+5437942158122" class="text-text-secondary hover:text-secondary transition-colors font-medium">
                                     +54 3794 215812
                                 </a>
+                                <p class="text-sm text-text-muted mt-1">Lun - Vie: 9:00 - 18:00</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-soft-green transition-colors">
-                            <div class="bg-accent/10 p-3 rounded-full">
+                        <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/80 transition-colors group">
+                            <div class="bg-accent/10 p-3 rounded-lg group-hover:bg-accent/20 transition-colors">
                                 <i data-lucide="mail" class="w-6 h-6 text-accent"></i>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-text-primary mb-1">Email</h3>
-                                <a href="mailto:thiagofalkiev@hotmail.com.ar" class="text-text-secondary hover:text-accent transition-colors">
+                                <h3 class="font-semibold text-text-primary mb-1">Email Profesional</h3>
+                                <a href="mailto:thiagofalkiev@hotmail.com.ar" class="text-text-secondary hover:text-accent transition-colors font-medium">
                                     thiagofalkiev@hotmail.com.ar
                                 </a>
+                                <p class="text-sm text-text-muted mt-1">Respuesta en 24 horas</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Horarios de disponibilidad -->
-                <div class="glass-effect rounded-2xl p-8">
-                    <h3 class="font-serif text-xl font-semibold text-text-primary mb-6 text-center">
-                        Horarios de Disponibilidad
+                <!-- Horarios y disponibilidad -->
+                <div class="bg-white rounded-2xl p-8 shadow-card mb-8">
+                    <h3 class="font-heading text-xl font-bold text-text-primary mb-6 flex items-center gap-3">
+                        <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        Horarios de Atención
                     </h3>
-                    <div class="space-y-3 text-center">
-                        <div class="flex justify-between items-center py-2">
-                            <span class="text-text-secondary">Lunes - Viernes</span>
-                            <span class="text-text-primary font-medium">9:00 - 18:00</span>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                            <span class="text-text-secondary font-medium">Lunes - Viernes</span>
+                            <span class="text-text-primary font-semibold">9:00 - 18:00</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                            <span class="text-text-secondary font-medium">Sábados</span>
+                            <span class="text-text-primary font-semibold">10:00 - 14:00</span>
                         </div>
                         <div class="flex justify-between items-center py-2">
-                            <span class="text-text-secondary">Sábados</span>
-                            <span class="text-text-primary font-medium">10:00 - 14:00</span>
+                            <span class="text-text-secondary font-medium">Domingos</span>
+                            <span class="text-red-500 font-semibold">Cerrado</span>
                         </div>
-                        <div class="flex justify-between items-center py-2">
-                            <span class="text-text-secondary">Domingos</span>
-                            <span class="text-text-primary font-medium">Cerrado</span>
-                        </div>
+                    </div>
+                </div>
+                
+                <!-- Métodos de contacto alternativos -->
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <h3 class="font-heading text-xl font-bold text-text-primary mb-6">
+                        Contacto Inmediato
+                    </h3>
+                    <div class="space-y-4">
+                        <a href="https://wa.me/5493794215812" 
+                           target="_blank"
+                           class="flex items-center gap-4 p-4 bg-white/80 dark:bg-gray-800/80 hover:bg-green-200 dark:hover:bg-green-700/80 rounded-xl transition-colors group">
+                            <div class="bg-green-500 p-3 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-text-primary">WhatsApp Business</h4>
+                                <p class="text-sm text-text-secondary">Respuesta inmediata</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://ar.linkedin.com/in/thiago-falkievich-4513b723a" 
+                           target="_blank"
+                           class="flex items-center gap-4 p-4 bg-white/80 dark:bg-gray-800/80 hover:bg-blue-200 dark:hover:bg-blue-700/80 rounded-xl transition-colors group">
+                            <div class="bg-blue-600 p-3 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-text-primary">LinkedIn</h4>
+                                <p class="text-sm text-text-secondary">Red profesional</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Formulario de Contacto -->
+            <!-- Formulario de contacto profesional -->
             <div class="animate-slide-up" style="animation-delay: 0.2s">
-                <div class="glass-effect rounded-2xl p-8">
-                    <h2 class="font-serif text-2xl font-semibold text-text-primary mb-8 text-center">
-                        Envíame un Mensaje
+                <div class="bg-white rounded-2xl p-8 shadow-card">
+                    <h2 class="font-heading text-2xl font-bold text-text-primary mb-8 flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                        </div>
+                        Solicitar Cotización
                     </h2>
                     
                     <form class="space-y-6" id="contactForm">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-text-primary font-medium mb-3" for="name">
-                                    Nombre Completo
+                                <label class="block text-text-primary font-semibold mb-3" for="name">
+                                    Nombre Completo *
                                 </label>
                                 <input 
-                                    class="w-full px-4 py-3 bg-white/50 border border-white/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 placeholder-text-secondary/60" 
+                                    class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 placeholder-text-muted" 
                                     id="name" 
                                     type="text" 
                                     placeholder="Tu nombre completo" 
@@ -110,77 +165,97 @@
                             </div>
                             
                             <div>
-                                <label class="block text-text-primary font-medium mb-3" for="email">
-                                    Correo Electrónico
+                                <label class="block text-text-primary font-semibold mb-3" for="email">
+                                    Email Profesional *
                                 </label>
                                 <input 
-                                    class="w-full px-4 py-3 bg-white/50 border border-white/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 placeholder-text-secondary/60" 
+                                    class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 placeholder-text-muted" 
                                     id="email" 
                                     type="email" 
-                                    placeholder="tu@email.com" 
+                                    placeholder="tu@empresa.com" 
                                     required
                                 >
                             </div>
                         </div>
                         
-                        <div>
-                            <label class="block text-text-primary font-medium mb-3" for="subject">
-                                Asunto
-                            </label>
-                            <input 
-                                class="w-full px-4 py-3 bg-white/50 border border-white/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 placeholder-text-secondary/60" 
-                                id="subject" 
-                                type="text" 
-                                placeholder="¿De qué quieres hablar?" 
-                                required
-                            >
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-text-primary font-semibold mb-3" for="company">
+                                    Empresa/Organización
+                                </label>
+                                <input 
+                                    class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 placeholder-text-muted" 
+                                    id="company" 
+                                    type="text" 
+                                    placeholder="Nombre de tu empresa" 
+                                >
+                            </div>
+                            
+                            <div>
+                                <label class="block text-text-primary font-semibold mb-3" for="budget">
+                                    Presupuesto Estimado
+                                </label>
+                                <select 
+                                    class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" 
+                                    id="budget"
+                                >
+                                    <option value="">Seleccionar rango</option>
+                                    <option value="< $1000">Menos de $1,000</option>
+                                    <option value="$1000-$5000">$1,000 - $5,000</option>
+                                    <option value="$5000-$10000">$5,000 - $10,000</option>
+                                    <option value="> $10000">Más de $10,000</option>
+                                </select>
+                            </div>
                         </div>
                         
                         <div>
-                            <label class="block text-text-primary font-medium mb-3" for="message">
-                                Tu Mensaje
+                            <label class="block text-text-primary font-semibold mb-3" for="subject">
+                                Tipo de Proyecto *
+                            </label>
+                            <select 
+                                class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" 
+                                id="subject"
+                                required
+                            >
+                                <option value="">Seleccionar tipo</option>
+                                <option value="web-app">Aplicación Web</option>
+                                <option value="api">API/Backend</option>
+                                <option value="database">Base de Datos</option>
+                                <option value="consulting">Consultoría Técnica</option>
+                                <option value="maintenance">Mantenimiento</option>
+                                <option value="other">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-text-primary font-semibold mb-3" for="message">
+                                Descripción del Proyecto *
                             </label>
                             <textarea 
-                                class="w-full px-4 py-3 bg-white/50 border border-white/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 h-32 resize-y placeholder-text-secondary/60" 
+                                class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 h-32 resize-y placeholder-text-muted" 
                                 id="message" 
-                                placeholder="Cuéntame sobre tu proyecto o consulta..." 
+                                placeholder="Describe tu proyecto, objetivos, tecnologías preferidas y cualquier requisito específico..." 
                                 required
                             ></textarea>
                         </div>
                         
                         <div class="text-center">
                             <button 
-                                class="group w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 px-8 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2" 
+                                class="group w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 px-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-3 shadow-card" 
                                 type="submit"
                             >
-                                <span>Enviar Mensaje</span>
+                                <span>Enviar Solicitud</span>
                                 <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                                 </svg>
                             </button>
                         </div>
+                        
+                        <p class="text-sm text-text-muted text-center">
+                            * Campos obligatorios. Te responderé en un plazo máximo de 24 horas.
+                        </p>
                     </form>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Call to action adicional -->
-        <div class="text-center mt-16 animate-fade-in">
-            <div class="glass-effect rounded-2xl p-8 max-w-2xl mx-auto">
-                <h3 class="font-serif text-xl font-semibold text-text-primary mb-4">
-                    ¿Prefieres una llamada?
-                </h3>
-                <p class="text-text-secondary mb-6">
-                    Si prefieres hablar directamente, no dudes en llamarme o enviarme un mensaje por WhatsApp.
-                </p>
-                <a href="https://wa.me/5493794215812" 
-                   target="_blank"
-                   class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                    </svg>
-                    <span>WhatsApp</span>
-                </a>
             </div>
         </div>
     </div>
@@ -191,37 +266,62 @@
     document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
         
-        // Manejar envío del formulario
+        // Manejar envío del formulario con feedback profesional
         const form = document.getElementById('contactForm');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Simular envío exitoso
             const button = form.querySelector('button[type="submit"]');
             const originalText = button.innerHTML;
             
+            // Estado de carga
             button.innerHTML = `
                 <svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                 </svg>
-                <span>Enviando...</span>
+                <span>Enviando solicitud...</span>
             `;
             button.disabled = true;
             
+            // Simular envío
             setTimeout(() => {
+                // Estado de éxito
                 button.innerHTML = `
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span>¡Enviado!</span>
+                    <span>¡Solicitud enviada!</span>
                 `;
+                button.classList.remove('bg-primary', 'hover:bg-primary/90');
+                button.classList.add('bg-green-600');
+                
+                // Mostrar notificación de éxito
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-24 right-6 bg-white border-l-4 border-green-500 shadow-professional rounded-lg p-4 z-50 animate-slide-down max-w-sm';
+                notification.innerHTML = `
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="text-sm font-semibold text-text-primary">Solicitud Recibida</h4>
+                            <p class="text-sm text-text-secondary mt-1">Te contactaré en las próximas 24 horas para discutir tu proyecto.</p>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(notification);
                 
                 setTimeout(() => {
+                    notification.remove();
                     button.innerHTML = originalText;
                     button.disabled = false;
+                    button.classList.remove('bg-green-600');
+                    button.classList.add('bg-primary', 'hover:bg-primary/90');
                     form.reset();
-                }, 2000);
-            }, 1500);
+                }, 4000);
+            }, 2000);
         });
     });
 </script>
