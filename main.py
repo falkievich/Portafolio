@@ -31,6 +31,14 @@ PROJECTS = [
         "technologies": ["Node.js", "Tailwind CSS", "JavaScript", "MongoDB Atlas"],
         "image": "/static/images/FonApp_Login.webp",  # Ruta de la imagen
         "link": "privado"
+    },
+        {
+        "id": 3,
+        "title": "Fuzzy PDF Matcher",
+        "description": "Este proyecto automatiza la extracción de pares clave-valor de archivos JSON o TXT y los contrasta con el contenido de PDFs, manejando variaciones de formato (acentos, mayúsculas, separadores numéricos) y errores tipográficos. Emplea lógica difusa para asignar a cada comparación un porcentaje de similitud y una etiqueta cualitativa (“exacta”, “alta”, “media” o “baja”), facilitando la interpretación de los resultados.",
+        "technologies": ["Python", "FastAPI", "PyMuPDF", "Python RegEx",  "Rapidfuzz "],
+        "image": "/static/images/Fuzzy_PDF_Matcher.webp",  # Ruta de la imagen
+        "link": "https://github.com/falkievich/Fuzzy_PDF_Matcher"
     }
 ]
 
@@ -57,7 +65,8 @@ async def about(request: Request):
             "Python", "FastAPI", "Jinja2", 
             "MySQL", "Docker", "Git" , "Trello", 
             "Vercel", "Microsoft Access", "Numpy", 
-            "MongoDB", "Project Manager"
+            "MongoDB", "Project Manager", "React", ""
+            "RegEx"
         ]
     })
 

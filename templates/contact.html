@@ -55,7 +55,6 @@
                                 <a href="tel:+5437942158122" class="text-text-secondary hover:text-secondary transition-colors font-medium">
                                     +54 3794 215812
                                 </a>
-                                <p class="text-sm text-text-muted mt-1">Lun - Vie: 9:00 - 18:00</p>
                             </div>
                         </div>
                         
@@ -64,11 +63,10 @@
                                 <i data-lucide="mail" class="w-6 h-6 text-accent"></i>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-text-primary mb-1">Email Profesional</h3>
+                                <h3 class="font-semibold text-text-primary mb-1">Email Personal</h3>
                                 <a href="mailto:thiagofalkiev@hotmail.com.ar" class="text-text-secondary hover:text-accent transition-colors font-medium">
                                     thiagofalkiev@hotmail.com.ar
                                 </a>
-                                <p class="text-sm text-text-muted mt-1">Respuesta en 24 horas</p>
                             </div>
                         </div>
                     </div>
@@ -86,12 +84,8 @@
                     </h3>
                     <div class="space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                            <span class="text-text-secondary font-medium">Lunes - Viernes</span>
-                            <span class="text-text-primary font-semibold">9:00 - 18:00</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                            <span class="text-text-secondary font-medium">Sábados</span>
-                            <span class="text-text-primary font-semibold">10:00 - 14:00</span>
+                            <span class="text-text-secondary font-medium">Lunes - Sábados</span>
+                            <span class="text-text-primary font-semibold">08:00 - 22:00</span>
                         </div>
                         <div class="flex justify-between items-center py-2">
                             <span class="text-text-secondary font-medium">Domingos</span>
@@ -261,68 +255,4 @@
     </div>
 </section>
 
-<script>
-    // Inicializar los iconos de Lucide
-    document.addEventListener('DOMContentLoaded', () => {
-        lucide.createIcons();
-        
-        // Manejar envío del formulario con feedback profesional
-        const form = document.getElementById('contactForm');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const button = form.querySelector('button[type="submit"]');
-            const originalText = button.innerHTML;
-            
-            // Estado de carga
-            button.innerHTML = `
-                <svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                </svg>
-                <span>Enviando solicitud...</span>
-            `;
-            button.disabled = true;
-            
-            // Simular envío
-            setTimeout(() => {
-                // Estado de éxito
-                button.innerHTML = `
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>¡Solicitud enviada!</span>
-                `;
-                button.classList.remove('bg-primary', 'hover:bg-primary/90');
-                button.classList.add('bg-green-600');
-                
-                // Mostrar notificación de éxito
-                const notification = document.createElement('div');
-                notification.className = 'fixed top-24 right-6 bg-white border-l-4 border-green-500 shadow-professional rounded-lg p-4 z-50 animate-slide-down max-w-sm';
-                notification.innerHTML = `
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                        </div>
-                        <div class="ml-3">
-                            <h4 class="text-sm font-semibold text-text-primary">Solicitud Recibida</h4>
-                            <p class="text-sm text-text-secondary mt-1">Te contactaré en las próximas 24 horas para discutir tu proyecto.</p>
-                        </div>
-                    </div>
-                `;
-                document.body.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.remove();
-                    button.innerHTML = originalText;
-                    button.disabled = false;
-                    button.classList.remove('bg-green-600');
-                    button.classList.add('bg-primary', 'hover:bg-primary/90');
-                    form.reset();
-                }, 4000);
-            }, 2000);
-        });
-    });
-</script>
 {% endblock %}

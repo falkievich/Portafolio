@@ -47,7 +47,7 @@
                 <div class="relative">
                     <div class="w-80 h-80 rounded-2xl overflow-hidden shadow-professional bg-white p-2">
                         <img 
-                            src="static/images/Foto_Thiago_Perfil.jpg" 
+                            src="./static/images/Foto_Thiago_Perfil.jpg" 
                             alt="Thiago Falkievich - Desarrollador Web" 
                             class="w-full h-full object-cover rounded-xl"
                         >
@@ -105,6 +105,10 @@
                             <h4 class="font-semibold text-text-primary">Analista en Sistemas</h4>
                             <p class="text-text-secondary text-sm">Graduado • Título obtenido</p>
                         </div>
+                        <div class="border-l-4 border-secondary pl-4">
+                            <h4 class="font-semibold text-text-primary">Educación Secundaria</h4>
+                            <p class="text-text-secondary text-sm">Graduado • Título obtenido</p>
+                        </div>
                     </div>
                 </div>
                 
@@ -151,6 +155,7 @@
                             ('FastAPI', 'icons/fastapi_icon.svg'),
                             ('Pydantic', 'icons/pydantic_icon.svg'),
                             ('Numpy', 'icons/numpy_icon.svg'),
+                            ('RegEx', 'icons/python_regex._icon.svg'),
                             ('Jinja2', 'icons/jinja_icon.svg'),
                             ('SQL Alchemy', 'icons/sql_alchemy_icon.svg')
                         ] %}
@@ -212,7 +217,8 @@
                     </div>
                     <div class="grid grid-cols-2 gap-3">
                         {% set frontend_skills = [
-                            ('Tailwind CSS', 'icons/tailwind_css_icon.svg')
+                            ('Tailwind CSS', 'icons/tailwind_css_icon.svg'),
+                            ('React', 'icons/react_icon.svg')
                         ] %}
                         {% for skill, icon_path in frontend_skills %}
                         <div class="bg-purple-50 hover:bg-purple-100 border border-purple-100 hover:border-purple-200 rounded-lg p-3 transition-all duration-300 group cursor-pointer">
